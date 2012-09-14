@@ -14,7 +14,7 @@ public class Consulta
 		int[] NumeroBilletes= {0,0,0,0,0};
 		
 		//DOSMILL 2000
-		while(cantidad >=2000 && dosmil!=0)
+		while(cantidad >=2000 && dosmil>=0)
 		{
 			NumeroBilletes[4]+= 1;
 			cantidad-= 2000;
@@ -22,34 +22,35 @@ public class Consulta
 		}
 
 		//MIL 1000
-		while(cantidad >=1000  && mil!=0)
+		while(cantidad >=1000  && mil>=0)
 		{
 			NumeroBilletes[3]+=1;
 			cantidad-= 1000;
 		}
 
 		//MIL 500
-		while(cantidad >=500 && quiniento!=0)
+		while(cantidad >=500 && quiniento>=0)
 		{
 			NumeroBilletes[2]+=1;
 			cantidad-= 500;
 		}
 		
 		//MIL 200
-		while(cantidad >=200 && dosciento!=0)
+		while(cantidad >=200 && dosciento>=0)
 		{
 			NumeroBilletes[1]+=1;
 			cantidad-= 200;
 		}
 		
 		//MIL 100
-		while(cantidad >=100 && cien!=0)
+		while(cantidad >=100 && cien>0)
 		{
 			NumeroBilletes[0]+=1;
 			cantidad-= 100;
 		}
 		
 		if(
+			cantidad!=0 ||
 			cien - NumeroBilletes[0]<0 || 
 			dosciento - NumeroBilletes[1]<0 ||
 			quiniento - NumeroBilletes[2]<0 ||
@@ -63,7 +64,6 @@ public class Consulta
 		{
 			return true;
 		}
-		
 			
 	}
 	

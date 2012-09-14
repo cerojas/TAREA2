@@ -6,46 +6,66 @@ public class Cajero
 	public static void main(String[] args)
 	{
 		Scanner lee= new Scanner(System.in);
-		boolean salir= true;
 		
+		
+		
+		
+		boolean salir= true;
 		while(salir)
 		{
-			int cantidad;
-			
-			System.out.print("Introdusca un monto: ");
+			System.out.print("Introdusca nombre de usuario: ");
 			String entrada = lee.next();
 			
-			/*SALIR*/
+			/*salir del programa*/
 			if(entrada.toLowerCase().equals("s"))
 			{salir= false; break;}
-			
-			
-			if(IsNumero.IsInt(entrada)==true)
+		
+		
+		
+		
+			boolean salirConsulta= true;
+			while(salirConsulta)
 			{
-				cantidad = Integer.parseInt(entrada);
+				
+				int cantidad;
+				
+				System.out.print("Introdusca un montoo `s` para salir: ");
+				entrada = lee.next();
+				
+				/*salir del Consulta*/
+				if(entrada.toLowerCase().equals("s"))
+				{salirConsulta= false; break;}
 				
 				
-				if(cantidad % 100==0)
+				if(IsNumero.IsInt(entrada))
 				{
-					if(Consulta.probarRetiroDinero(cantidad)==true)
+					
+					cantidad = Integer.parseInt(entrada);
+					
+					
+					if(cantidad % 100==0)
 					{
-						Consulta.retiroDinero(cantidad);
-					}
+						if(Consulta.probarRetiroDinero(cantidad))
+						{
+							Consulta.retiroDinero(cantidad);
+						}
+						else
+						{
+							System.out.println("Intentalo con otro monto !");
+						}
+					}			
 					else
 					{
-						System.out.println("Intentalo con otro monto !");
+						System.out.println("El monto debe ser multiplo de 100 !");
 					}
-				}			
+				}
 				else
 				{
-					System.out.println("El monto debe ser multiplo de 100 !");
+					System.out.println("Digite un numero !");
 				}
-			}
-			else
-			{
-				System.out.println("Digite un numero !");
-			}
+				
+			}/*end while salirConsulta*/
 			
-		}
+		}/*end while salr*/
 	}
 }
