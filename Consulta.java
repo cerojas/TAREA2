@@ -5,11 +5,11 @@ public class Consulta
 	static int quiniento = 3;
 	static int dosciento=  5;
 	static int cien = 2;
-	static double enCaja = dosmil + mil + quiniento + dosciento + cien;
+	static double enCaja = dosmil*2000 + mil*1000 + quiniento*500 + dosciento*200 + cien*100;
 	
-	public static boolean probarRetiroDinero(int cantidad)
+	public static boolean probarRetiroDinero(int cantidad, int numeroBanco)
 	{
-		
+		boolean retornar= false;
 		
 		int[] NumeroBilletes= {0,0,0,0,0};
 		
@@ -49,6 +49,9 @@ public class Consulta
 			cantidad-= 100;
 		}
 		
+		/*probar si tiene dinero la cuenta*/
+		double totalAretirar = (NumeroBilletes[0]*100) + (NumeroBilletes[1]*200) + (NumeroBilletes[2]*500) + (NumeroBilletes[3]*1000) + (NumeroBilletes[4]*2000);
+		
 		if(
 			cantidad!=0 ||
 			cien - NumeroBilletes[0]<0 || 
@@ -58,13 +61,55 @@ public class Consulta
 			dosmil - NumeroBilletes[4]<0
 		)
 		{
-			return false;
+			retornar= false;
+			System.out.println("no hay cuarto!");
 		}
 		else
 		{
-			return true;
-		}
+			switch(numeroBanco)
+			{
+				case 1:
+					if(Bancos.visaC[Login.numeroUsuario]-totalAretirar<0)
+					{
+						System.out.println("Usted no cuenta con suficiente valance para hacer esta operacion !");
+						retornar= false;
+					}
+					else{retornar= true;}
+				break;
+				
+				case 2:
+					if(Bancos.mastercardC[Login.numeroUsuario]-totalAretirar<0)
+					{
+						System.out.println("Usted no cuenta con suficiente valance para hacer esta operacion !");
+						retornar= false;
+					}
+					else{retornar= true;}
+				break;
+				
+				case 3:
+					if(Bancos.maestroC[Login.numeroUsuario]-totalAretirar<0)
+					{
+						System.out.println("Usted no cuenta con suficiente valance para hacer esta operacion !");
+						retornar= false;
+					}
+					else{retornar= true;}
+				break;
+				
+				case 4:
+					if(Bancos.americanExpressC[Login.numeroUsuario]-totalAretirar<0)
+					{
+						System.out.println("Usted no cuenta con suficiente valance para hacer esta operacion !");
+						retornar= false;
+					}
+					else{retornar= true;}
+				break;
+			}
 			
+			
+		}
+		 
+		return retornar;
+		
 	}
 	
 	
