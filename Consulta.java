@@ -1,10 +1,10 @@
 public class Consulta
 {
-	static double dosmil= 2;
-	static double mil= 2;
-	static int quiniento = 3;
-	static int dosciento=  5;
-	static int cien = 2;
+	static double dosmil= 12;
+	static double mil= 21;
+	static int quiniento = 30;
+	static int dosciento=  100;
+	static int cien = 200;
 	static double enCaja = dosmil*2000 + mil*1000 + quiniento*500 + dosciento*200 + cien*100;
 	
 	public static boolean probarRetiroDinero(int cantidad, int numeroBanco)
