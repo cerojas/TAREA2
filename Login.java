@@ -1,25 +1,41 @@
 public class Login
 {	
+
+	
+
 	/*identifica si esta registrado*/
 	public static boolean usuarioEntrada(String usuario, int password)
 	{
+		
+	
 		/*visa*/
 		boolean retornar=false;
 		for(int a=0; a<Bancos.visaU.length; a++)
 		{
 			if(Bancos.visaU[a].equals(usuario))
 			{
-				System.out.println("usuario correcto");
+				if(Bancos.visaB[a]>=3)
+				{
+					retornar= false;
+					System.out.println("ha excedido los intentos !");
+					break;
+				}
 				if(Bancos.visaP[a]== password)
 				{	
-					System.out.println("contrasena correcto");
+					
 					
 					retornar= true;
 					break;
 				}
 				else
 				{
-					System.out.println("contrasena incorrecto");
+					Bancos.visaB[a]+=1;
+					if(Bancos.visaB[a]>=3)
+					{
+						retornar= false;
+						System.out.println("ha excedido los intentos !");
+						break;
+					}
 				}
 			}
 			
@@ -30,17 +46,28 @@ public class Login
 		{
 			if(Bancos.mastercardU[a].equals(usuario))
 			{
-				System.out.println("usuario correcto");
+				if(Bancos.mastercardB[a]>=3)
+				{
+					retornar= false;
+					System.out.println("ha excedido los intentos !");
+					break;
+				}
 				if(Bancos.mastercardP[a]== password)
 				{	
-					System.out.println("contrasena correcto");
+					
 					
 					retornar= true;
 					break;
 				}
 				else
 				{
-					System.out.println("contrasena incorrecto");
+					Bancos.mastercardB[a]+=1;
+					if(Bancos.mastercardB[a]>=3)
+					{
+						retornar= false;
+						System.out.println("ha excedido los intentos !");
+						break;
+					}
 				}
 			}
 			
@@ -51,17 +78,28 @@ public class Login
 		{
 			if(Bancos.maestroU[a].equals(usuario))
 			{
-				System.out.println("usuario correcto");
+				if(Bancos.maestroB[a]>=3)
+				{
+					retornar= false;
+					System.out.println("ha excedido los intentos !");
+					break;
+				}
 				if(Bancos.maestroP[a]== password)
 				{	
-					System.out.println("contrasena correcto");
+					
 					
 					retornar= true;
 					break;
 				}
 				else
 				{
-					System.out.println("contrasena incorrecto");
+					Bancos.maestroB[a]+=1;
+					if(Bancos.maestroB[a]>=3)
+					{
+						retornar= false;
+						System.out.println("ha excedido los intentos !");
+						break;
+					}
 				}
 			}
 			
@@ -72,17 +110,28 @@ public class Login
 		{
 			if(Bancos.americanExpressU[a].equals(usuario))
 			{
-				System.out.println("usuario correcto");
+				if(Bancos.americanExpressB[a]>=3)
+				{
+					retornar= false;
+					System.out.println("ha excedido los intentos !");
+					break;
+				}
 				if(Bancos.americanExpressP[a]== password)
 				{	
-					System.out.println("contrasena correcto");
+					
 					
 					retornar= true;
 					break;
 				}
 				else
 				{
-					System.out.println("contrasena incorrecto");
+					Bancos.americanExpressB[a]+=1;
+					if(Bancos.americanExpressB[a]>=3)
+					{
+						retornar= false;
+						System.out.println("ha excedido los intentos !");
+						break;
+					}
 				}
 			}
 			
